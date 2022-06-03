@@ -1,8 +1,10 @@
+import MainTemplate from 'components/templates/MainTemplate';
+
 const Root = () => {
   return (
-    <div>
+    <MainTemplate>
       <h1>hello world</h1>
-    </div>
+    </MainTemplate>
   );
 };
 
