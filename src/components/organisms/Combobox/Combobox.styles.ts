@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: relative;
-  width: 40vw;
+  width: 30rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     border: none;
     border-radius: 1.25rem;
     color: white;
-    padding: 1rem 1.35rem;
+    padding: 1.25rem 1.5rem;
     font-size: ${({ theme }) => theme.fontSize.l};
   }
 `;

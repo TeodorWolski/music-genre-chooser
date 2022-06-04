@@ -11,7 +11,7 @@ const Combobox = () => {
   return (
     <Wrapper>
       <input placeholder="Genre name" />
-      <button onClick={handleChangeVisibility}>↓</button>
+      <button onClick={handleChangeVisibility}>{isVisible ? '↑' : '↓'}</button>
       <GenresList isVisible={isVisible} />
     </Wrapper>
   );
