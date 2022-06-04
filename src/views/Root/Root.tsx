@@ -1,9 +1,10 @@
 import MainTemplate from 'components/templates/MainTemplate';
+import { Heading } from './Root.styles';
 
 const Root = () => {
   return (
     <MainTemplate>
-      <h1>hello world</h1>
+      <Heading>Choose your favourite music</Heading>
     </MainTemplate>
   );
 };
