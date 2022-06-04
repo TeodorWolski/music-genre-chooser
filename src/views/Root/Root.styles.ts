@@ -5,7 +5,7 @@ export const Heading = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.xl};
 
   &::after {
-    content: ' genre';
+    content: ' genre.';
     color: ${({ theme }) => theme.colors.green};
   }
 `;
