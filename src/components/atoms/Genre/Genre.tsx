@@ -9,7 +9,7 @@ import SpotifyIcon from 'assets/icons/SpotifyIcon.png';
 
 const Genre: React.FC<Props> = ({ id, genre, artist, url, image }) => {
   return (
-    <GenreWrapper key={id}>
+    <GenreWrapper key={id} tabIndex={id}>
       <ImageWrapper>
         <img src={image} alt="genre" />
       </ImageWrapper>

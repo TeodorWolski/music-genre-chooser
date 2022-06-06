@@ -15,4 +15,5 @@ export const Wrapper = styled.ul<{ isVisible: boolean }>`
   overflow-y: scroll;
   overflow-x: hidden;
   align-items: center;
+  background-color: #f7f8fa;
 `;
