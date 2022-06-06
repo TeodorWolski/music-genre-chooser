@@ -6,7 +6,7 @@ export const Wrapper = styled.ul<{ isVisible: boolean }>`
   background-color: #fff;
   width: 30rem;
   top: 105%;
-  height: 20rem;
+  height: 25rem;
   border-radius: 2rem;
   flex-direction: column;
   color: black;
