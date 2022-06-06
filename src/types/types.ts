@@ -3,4 +3,5 @@ export interface Genre {
   genre: string;
   artist: string;
   image: string;
+  url: string;
 }

@@ -30,8 +30,15 @@ const GenresList: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   return (
     <>
       <Wrapper isVisible={isVisible}>
-        {genres.map(({ image, genre, id, artist }) => (
-          <Genre key={id} id={id} image={image} genre={genre} artist={artist} />
+        {genres.map(({ image, genre, id, artist, url }) => (
+          <Genre
+            url={url}
+            key={id}
+            id={id}
+            image={image}
+            genre={genre}
+            artist={artist}
+          />
         ))}
       </Wrapper>
     </>
