@@ -10,12 +10,10 @@ const MainTemplate: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <Provider store={store}>
-      <>
-        <GlobalStyle />
-        <ThemeProvider theme={theme}>
-          <Wrapper>{children}</Wrapper>
-        </ThemeProvider>
-      </>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Wrapper>{children}</Wrapper>
+      </ThemeProvider>
     </Provider>
   );
 };

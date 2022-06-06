@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   genres: [],
+  error: null,
 };
 
 const genreSlice = createSlice({
