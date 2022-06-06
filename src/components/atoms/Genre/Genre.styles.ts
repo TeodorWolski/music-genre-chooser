@@ -6,6 +6,7 @@ export const GenreWrapper = styled.li`
   grid-template-columns: 20% 40% 50%;
   background-color: white;
   height: 10rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   align-items: center;
   justify-content: center;
