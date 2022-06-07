@@ -7,19 +7,20 @@ import {
 import { Genre as Props } from 'types/types';
 import SpotifyIcon from 'assets/icons/SpotifyIcon.png';
 
-const Genre: React.FC<Props> = ({ id, genre, artist, url, image }) => {
+const Genre: React.FC<Props> = ({ id, genre, artist, url, image, onClick }) => {
   return (
-    <GenreWrapper key={id} tabIndex={id}>
+    <GenreWrapper key={id} as="button" onClick={onClick} tabIndex={id}>
       <ImageWrapper>
         <img src={image} alt="genre" />
       </ImageWrapper>
       <InfoWrapper>
         <h1>{genre}</h1>
         <p>
-          artist: <strong>{artist}</strong>
+          artist: <strong> {artist}</strong>
         </p>
       </InfoWrapper>
       <SpotifyLink
+        tabIndex={-1}
         href={url}
         target="_blank"
         rel="noopener noreferrer"

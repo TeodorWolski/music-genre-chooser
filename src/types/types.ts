@@ -4,4 +4,5 @@ export interface Genre {
   artist: string;
   image: string;
   url: string;
+  onClick?: () => void;
 }

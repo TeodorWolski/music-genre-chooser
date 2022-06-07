@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Wrapper } from './Combobox.styles';
+import { Wrapper, Button } from './Combobox.styles';
 import GenresList from 'components/molecules/GenresList/GenresList';
 
 const Combobox = () => {
@@ -8,10 +8,12 @@ const Combobox = () => {
     setVisibility(!isVisible);
   };
 
+  //tutaj wyświetlane selected items
+
   return (
     <Wrapper>
       <input placeholder="Genre name" />
-      <button onClick={handleChangeVisibility}>{isVisible ? '↑' : '↓'}</button>
+      <Button onClick={handleChangeVisibility}>{isVisible ? '↑' : '↓'}</Button>
       <GenresList isVisible={isVisible} />
     </Wrapper>
   );

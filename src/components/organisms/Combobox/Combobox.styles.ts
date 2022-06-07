@@ -15,13 +15,13 @@ export const Wrapper = styled.div`
     border: 3px solid ${({ theme }) => theme.colors.green};
     outline: none;
   }
+`;
 
-  button {
-    background-color: ${({ theme }) => theme.colors.green};
-    border: none;
-    border-radius: 1.25rem;
-    color: white;
-    padding: 1.25rem 1.5rem;
-    font-size: ${({ theme }) => theme.fontSize.l};
-  }
+export const Button = styled.button`
+  background-color: ${({ theme }) => theme.colors.green};
+  border: none;
+  border-radius: 1.25rem;
+  color: white;
+  padding: 1.25rem 1.5rem;
+  font-size: ${({ theme }) => theme.fontSize.l};
 `;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const GenreWrapper = styled.li`
+  border: none;
   display: grid;
   width: 95%;
   grid-template-columns: 20% 40% 50%;
@@ -10,9 +11,10 @@ export const GenreWrapper = styled.li`
   margin-bottom: 1rem;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1rem 1rem 2.5rem;
+  padding: 0 1rem 0rem 2.5rem;
   border-radius: 2rem;
   box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
+  outline-color: ${({ theme }) => theme.colors.black};
 `;
 
 export const ImageWrapper = styled.div`
@@ -36,17 +38,21 @@ export const ImageWrapper = styled.div`
 `;
 
 export const InfoWrapper = styled.div`
+  padding: 0;
+  margin-left: 3rem;
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
+  align-items: flex-start;
 
   h1 {
-    transform: translateY(45%);
+    transform: translateY(20%);
+    font-size: ${({ theme }) => theme.fontSize.xl};
   }
 
   p {
-    transform: translateY(-75%);
+    transform: translateY(-80%);
     width: 13rem;
+    display: flex;
     font-size: ${({ theme }) => theme.fontSize.s};
     strong {
       color: ${({ theme }) => theme.colors.green};
@@ -64,4 +70,5 @@ export const SpotifyLink = styled.a<{ icon: string }>`
   background-size: 100%;
   background-position: center;
   cursor: pointer;
+  outline: none;
 `;

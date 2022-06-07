@@ -13,6 +13,12 @@ const GenresList: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
     dispatch(fetchGenres());
   }, []);
 
+  //tutaj akcja do dispach select items
+
+  const handleTest = (genre: string) => {
+    console.log(genre);
+  };
+
   return (
     <>
       <Wrapper isVisible={isVisible}>
@@ -24,6 +30,7 @@ const GenresList: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
             image={image}
             genre={genre}
             artist={artist}
+            onClick={() => handleTest(genre)}
           />
         ))}
       </Wrapper>
