@@ -7,4 +7,5 @@ export const Wrapper = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  transform: translateY(-10%);
 `;

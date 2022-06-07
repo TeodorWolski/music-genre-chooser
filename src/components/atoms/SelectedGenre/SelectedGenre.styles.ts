@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  margin: 0.2rem;
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.green};
