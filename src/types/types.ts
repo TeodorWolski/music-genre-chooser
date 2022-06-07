@@ -6,3 +6,9 @@ export interface Genre {
   url: string;
   onClick?: () => void;
 }
+
+export interface ContextProps {
+  selectedItems: Genre[] | [];
+  addGenre: (genre: string, id: number) => void;
+  deleteGenre: (id: number) => void;
+}

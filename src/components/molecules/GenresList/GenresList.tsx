@@ -3,7 +3,8 @@ import { Wrapper } from './GenresList.styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'redux/store/store';
 import Genre from 'components/atoms/Genre/Genre';
-import { SelectContext, ContextProps } from 'providers/SelectProvider';
+import { SelectContext } from 'providers/SelectProvider';
+import { ContextProps } from 'types/types';
 
 const GenresList: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   const dispatch = useDispatch();

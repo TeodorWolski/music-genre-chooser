@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Wrapper } from './SelectedGenresList.styles';
-import { SelectContext, ContextProps } from 'providers/SelectProvider';
+import { SelectContext } from 'providers/SelectProvider';
+import { ContextProps } from 'types/types';
 import SelectedGenre from 'components/atoms/SelectedGenre/SelectedGenre';
 
 const SelectedGenresList = () => {

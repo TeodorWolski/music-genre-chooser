@@ -1,11 +1,10 @@
-import { useEffect, useState, createContext } from 'react';
-import { Genre } from 'types/types';
+import { useState, createContext } from 'react';
+import { ContextProps } from 'types/types';
 import apiRequest from 'utils/apiRequest';
 
-export interface ContextProps {
-  selectedItems: Genre[] | [];
-  addGenre: (genre: string, id: number) => void;
-  deleteGenre?: (id: number) => void;
+interface item {
+  genre: string;
+  id: number;
 }
 
 export const SelectContext = createContext<ContextProps>({
@@ -22,8 +21,14 @@ const SelectProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [selectedItems, setSeletedItems] = useState<any>([]);
+  console.log(selectedItems);
   const addGenre = (genre: string, id: number) => {
     setSeletedItems([...selectedItems, { genre, id }]);
+  };
+
+  const deleteGenre = (id: number) => {
+    const newList = selectedItems.filter((item: item) => item.id !== id);
+    setSeletedItems(newList);
   };
 
   return (
@@ -31,6 +36,7 @@ const SelectProvider: React.FC<{ children: React.ReactNode }> = ({
       value={{
         addGenre,
         selectedItems,
+        deleteGenre,
       }}
     >
       {children}
