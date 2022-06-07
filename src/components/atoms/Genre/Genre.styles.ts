@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const GenreWrapper = styled.li`
+  cursor: pointer;
   border: none;
   display: grid;
   width: 95%;

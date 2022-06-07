@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
     font-size: ${({ theme }) => theme.fontSize.m};
   }
   button {
+    cursor: pointer;
     background: transparent;
     color: white;
     border: none;
