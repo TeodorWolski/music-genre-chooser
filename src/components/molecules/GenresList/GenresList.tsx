@@ -15,17 +15,23 @@ const GenresList: React.FC<Props> = ({ isVisible, genresList }) => {
   return (
     <>
       <Wrapper isVisible={isVisible}>
-        {genresList.map(({ image, genre, id, artist, url }) => (
-          <Genre
-            url={url}
-            key={id}
-            id={id}
-            image={image}
-            genre={genre}
-            artist={artist}
-            onClick={() => addGenre(genre, id)}
-          />
-        ))}
+        {genresList.length > 0 ? (
+          <>
+            {genresList.map(({ image, genre, id, artist, url }) => (
+              <Genre
+                url={url}
+                key={id}
+                id={id}
+                image={image}
+                genre={genre}
+                artist={artist}
+                onClick={() => addGenre(genre, id)}
+              />
+            ))}{' '}
+          </>
+        ) : (
+          <div>ni ma tkich</div>
+        )}
       </Wrapper>
     </>
   );

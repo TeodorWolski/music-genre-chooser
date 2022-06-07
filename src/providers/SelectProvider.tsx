@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react';
 import { ContextProps } from 'types/types';
-import apiRequest from 'utils/apiRequest';
+import axios from 'axios';
 
 interface item {
   genre: string;
@@ -21,9 +21,10 @@ const SelectProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [selectedItems, setSeletedItems] = useState<any>([]);
-  console.log(selectedItems);
+
   const addGenre = (genre: string, id: number) => {
     setSeletedItems([...selectedItems, { genre, id }]);
+    axios.post(`/genres/${id}/select`);
   };
 
   const deleteGenre = (id: number) => {
