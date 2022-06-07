@@ -24,7 +24,7 @@ const SelectProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const addGenre = (genre: string, id: number) => {
     setSeletedItems([...selectedItems, { genre, id }]);
-    axios.post(`/genres/${id}/select`);
+    axios.post(`/genres/select/${id}`);
   };
 
   const deleteGenre = (id: number) => {
