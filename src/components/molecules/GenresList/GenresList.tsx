@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import { Wrapper, NoMatches } from './GenresList.styles';
 import { SelectContext } from 'providers/SelectProvider';
 import { ContextProps, Genre as GenreProps } from 'types/types';
+import Modal from 'components/organisms/Modal/Modal';
 import Genre from 'components/atoms/Genre/Genre';
-
+import useModal from 'hooks/useModal';
 interface Props {
   genresList: GenreProps[];
   isVisible: boolean;
@@ -11,7 +12,7 @@ interface Props {
 
 const GenresList: React.FC<Props> = ({ isVisible, genresList }) => {
   const { addGenre } = useContext<ContextProps>(SelectContext);
-
+  const { handleOpenModal, isOpen, handleCloseModal } = useModal();
   return (
     <>
       <Wrapper isVisible={isVisible}>
@@ -32,10 +33,11 @@ const GenresList: React.FC<Props> = ({ isVisible, genresList }) => {
         ) : (
           <NoMatches>
             <h1>No matching genres</h1>
-            <button>Create</button>
+            <button onClick={handleOpenModal}>Create</button>
           </NoMatches>
         )}
       </Wrapper>
+      <Modal isOpen={isOpen} handleClose={handleCloseModal} />
     </>
   );
 };
