@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Wrapper } from './GenresList.styles';
+import { Wrapper, NoMatches } from './GenresList.styles';
 import { SelectContext } from 'providers/SelectProvider';
 import { ContextProps, Genre as GenreProps } from 'types/types';
 import Genre from 'components/atoms/Genre/Genre';
@@ -27,10 +27,13 @@ const GenresList: React.FC<Props> = ({ isVisible, genresList }) => {
                 artist={artist}
                 onClick={() => addGenre(genre, id)}
               />
-            ))}{' '}
+            ))}
           </>
         ) : (
-          <div>ni ma tkich</div>
+          <NoMatches>
+            <h1>No matching genres</h1>
+            <button>Create</button>
+          </NoMatches>
         )}
       </Wrapper>
     </>

@@ -17,3 +17,20 @@ export const Wrapper = styled.ul<{ isVisible: boolean }>`
   align-items: center;
   background-color: #f7f8fa;
 `;
+
+export const NoMatches = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  button {
+    border: none;
+    height: 3rem;
+    width: 10rem;
+    background-color: ${({ theme }) => theme.colors.green};
+    border-radius: 3rem;
+  }
+`;
