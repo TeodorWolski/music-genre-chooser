@@ -1,23 +1,16 @@
-import styled from 'styled-components';
+import { useContext } from 'react';
+import { Wrapper } from './SelectedGenresList.styles';
+import { SelectContext, ContextProps } from 'providers/SelectProvider';
 import SelectedGenre from 'components/atoms/SelectedGenre/SelectedGenre';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 35%;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2rem;
-`;
-
 const SelectedGenresList = () => {
+  const { selectedItems } = useContext<ContextProps>(SelectContext);
+
   return (
     <Wrapper>
-      <SelectedGenre genre="masss" />
-      <SelectedGenre genre="masss" />
-      <SelectedGenre genre="masss" />
-      <SelectedGenre genre="masss" />
-      <SelectedGenre genre="masss" />
+      {selectedItems.map(({ genre, id }) => (
+        <SelectedGenre genre={genre} key={id} id={id} />
+      ))}
     </Wrapper>
   );
 };

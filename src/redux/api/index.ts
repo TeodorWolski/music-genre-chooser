@@ -9,8 +9,3 @@ export const getGenres = async (): Promise<Genre[] | unknown> => {
     return err;
   }
 };
-
-export const selectedGenre = async (id: number): Promise<Genre> => {
-  const { data } = await apiRequest(`${id}/select`);
-  return data;
-};

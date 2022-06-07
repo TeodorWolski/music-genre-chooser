@@ -1,21 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { Wrapper } from './GenresList.styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'redux/store/store';
 import Genre from 'components/atoms/Genre/Genre';
+import { SelectContext, ContextProps } from 'providers/SelectProvider';
 
 const GenresList: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   const dispatch = useDispatch();
-  const genres = useSelector((state: RootState) => state.genres);
+  const genres = useSelector((state: RootState) => state);
+  const { addGenre } = useContext<ContextProps>(SelectContext);
   const fetchGenres = () => ({ type: 'GENRES_FETCH_REQUESTED' });
 
   useEffect(() => {
     dispatch(fetchGenres());
   }, []);
-
-  const handleTest = (genre: string) => {
-    console.log(genre);
-  };
 
   return (
     <>
@@ -28,7 +26,7 @@ const GenresList: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
             image={image}
             genre={genre}
             artist={artist}
-            onClick={() => handleTest(genre)}
+            onClick={() => addGenre(genre, id)}
           />
         ))}
       </Wrapper>
