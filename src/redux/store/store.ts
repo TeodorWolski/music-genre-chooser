@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
-import reducer from '../reducer/reducer';
+import { rootReducer } from '../reducers/rootReducer';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from 'redux/sideeffects/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootSaga);
 

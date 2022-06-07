@@ -6,14 +6,12 @@ import Genre from 'components/atoms/Genre/Genre';
 
 const GenresList: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   const dispatch = useDispatch();
-  const genres = useSelector((state: RootState) => state);
+  const genres = useSelector((state: RootState) => state.genres);
   const fetchGenres = () => ({ type: 'GENRES_FETCH_REQUESTED' });
 
   useEffect(() => {
     dispatch(fetchGenres());
   }, []);
-
-  //tutaj akcja do dispach select items
 
   const handleTest = (genre: string) => {
     console.log(genre);

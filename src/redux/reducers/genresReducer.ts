@@ -1,6 +1,6 @@
 import { Genre } from 'types/types';
 
-const reducer = (
+const genresReducer = (
   state: Genre[] = [],
   action: { type: 'GENRES_FETCH_SUCCEEDED'; payload: Genre[] }
 ) => {
@@ -12,4 +12,4 @@ const reducer = (
   }
 };
 
-export default reducer;
+export default genresReducer;
