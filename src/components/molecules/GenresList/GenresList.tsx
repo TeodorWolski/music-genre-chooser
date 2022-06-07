@@ -1,15 +1,18 @@
-import { useEffect, useState } from 'react';
-import { Genre as Props } from 'types/types';
-import axios from 'axios';
+import { useEffect } from 'react';
 import { Wrapper } from './GenresList.styles';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from 'redux/store/store';
 import Genre from 'components/atoms/Genre/Genre';
 
 const GenresList: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
-  const [genres, setGeneres] = useState<Props[] | []>([]);
+  const dispatch = useDispatch();
+  const genres = useSelector((state: RootState) => state);
+  const fetchGenres = () => ({ type: 'GENRES_FETCH_REQUESTED' });
 
   useEffect(() => {
-    axios.get('/genres').then(({ data }) => setGeneres(data.Genres));
+    dispatch(fetchGenres());
   }, []);
+
   return (
     <>
       <Wrapper isVisible={isVisible}>

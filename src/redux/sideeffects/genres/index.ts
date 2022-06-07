@@ -1,10 +1,8 @@
-import { call, put } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import { getGenres } from 'redux/api';
+import { Genre } from 'types/types';
 
-function* fetchGenres(): Generator {
-  try {
-    const genresData = yield call(getGenres);
-  } catch (e) {
-    console.error(e);
-  }
+export function* fetchGenres() {
+  const genres: Genre[] = yield getGenres();
+  yield put({ type: 'GENRES_FETCH_SUCCEEDED', payload: genres });
 }
