@@ -1,7 +1,5 @@
 import { useState, useRef } from 'react';
 import { ModalWrapper, InputsWrapper, Wrapper } from './Modal.styles';
-import { useDispatch } from 'react-redux';
-import { addGenre } from 'redux/actions';
 
 interface ModalInterface {
   handleClose: () => void;
@@ -22,7 +20,6 @@ const Modal: React.FC<ModalInterface> = ({ handleClose, isOpen }) => {
   const artistRef = useRef<HTMLInputElement>(null);
   const spotifyRef = useRef<HTMLInputElement>(null);
   const photoRef = useRef<HTMLInputElement>(null);
-  const dispatch = useDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,10 +40,7 @@ const Modal: React.FC<ModalInterface> = ({ handleClose, isOpen }) => {
       });
     }
 
-    // const { genre, artist, url, image } = newGenre;
-
-    // dispatch(addGenre({ genre, artist, url, image, id }));
-    // handleClose();
+    console.log(newGenre);
   };
 
   return (
