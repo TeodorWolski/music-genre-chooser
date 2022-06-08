@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'redux/store/store';
 import { Genre } from 'types/types';
 import { Wrapper, Button } from './Combobox.styles';
+import { fetchGenres } from 'redux/actions';
 import SelectedGenresList from 'components/molecules/SelectedGenresList/SelectedGenresList';
 import GenresList from 'components/molecules/GenresList/GenresList';
 
@@ -14,7 +15,6 @@ const Combobox = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const fulledGenresList = useSelector((state: RootState) => state);
-  const fetchGenres = () => ({ type: 'GENRES_FETCH_REQUESTED' });
 
   useEffect(() => {
     dispatch(fetchGenres());
