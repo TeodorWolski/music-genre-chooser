@@ -20,6 +20,7 @@ export const SelectContext = createContext<ContextProps>({
 const SelectProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [selectedItems, setSeletedItems] = useState<any>([]);
 
   const addGenre = (genre: string, id: number) => {
