@@ -8,7 +8,7 @@ interface ModalInterface {
 
 const Modal: React.FC<ModalInterface> = ({ handleClose, isOpen }) => {
   const [newGenre, setNewGenre] = useState<null | object>({});
-  const id = Math.floor(Math.random() * 100);
+  const id: number = Math.floor(Math.random() * 100);
   const nameRef = useRef<HTMLInputElement>(null);
   const artistRef = useRef<HTMLInputElement>(null);
   const spotifyRef = useRef<HTMLInputElement>(null);
@@ -44,10 +44,20 @@ const Modal: React.FC<ModalInterface> = ({ handleClose, isOpen }) => {
       <Wrapper onSubmit={handleSubmit}>
         <h1>Add new </h1>
         <InputsWrapper>
-          <input ref={nameRef} type="text" placeholder="Genre name" />
-          <input ref={artistRef} type="text" placeholder="Artist example" />
-          <input ref={spotifyRef} type="text" placeholder="Spotify url" />
-          <input ref={photoRef} type="file" placeholder="Picture" />
+          <input ref={nameRef} type="text" required placeholder="Genre name" />
+          <input
+            ref={artistRef}
+            type="text"
+            required
+            placeholder="Artist example"
+          />
+          <input
+            ref={spotifyRef}
+            type="text"
+            required
+            placeholder="Spotify url"
+          />
+          <input ref={photoRef} type="file" required placeholder="Picture" />
         </InputsWrapper>
         <div>
           <button type="submit">Add new genre!</button>
