@@ -1,21 +1,32 @@
 import { useState, useRef } from 'react';
 import { ModalWrapper, InputsWrapper, Wrapper } from './Modal.styles';
+import { useDispatch } from 'react-redux';
+import { addGenre } from 'redux/actions';
 
 interface ModalInterface {
   handleClose: () => void;
   isOpen: boolean;
 }
 
+const initialState = {
+  genre: '',
+  id: 0,
+  artist: '',
+  url: '',
+  image: '',
+};
+
 const Modal: React.FC<ModalInterface> = ({ handleClose, isOpen }) => {
-  const [newGenre, setNewGenre] = useState<null | object>({});
-  const id: number = Math.floor(Math.random() * 100);
+  const [newGenre, setNewGenre] = useState<null | object>(initialState);
   const nameRef = useRef<HTMLInputElement>(null);
   const artistRef = useRef<HTMLInputElement>(null);
   const spotifyRef = useRef<HTMLInputElement>(null);
   const photoRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const id: number = Math.floor(Math.random() * 100);
 
     if (
       nameRef.current ||
@@ -32,7 +43,10 @@ const Modal: React.FC<ModalInterface> = ({ handleClose, isOpen }) => {
       });
     }
 
-    console.log(newGenre);
+    // const { genre, artist, url, image } = newGenre;
+
+    // dispatch(addGenre({ genre, artist, url, image, id }));
+    // handleClose();
   };
 
   return (
