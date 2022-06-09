@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const GenreWrapper = styled.li`
+export const GenreWrapper = styled.li<{ isActive?: boolean | null }>`
   cursor: pointer;
-  border: none;
+  border: ${({ isActive }) => (isActive ? '3px solid black' : 'none')};
   display: grid;
   width: 95%;
   grid-template-columns: 20% 40% 50%;

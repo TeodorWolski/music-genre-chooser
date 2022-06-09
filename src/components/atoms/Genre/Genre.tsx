@@ -8,11 +8,17 @@ import { Genre as Props } from 'types/types';
 import SpotifyIcon from 'assets/icons/SpotifyIcon.png';
 
 const Genre: React.FC<Props> = (
-  { id, genre, artist, url, image, onClick },
+  { id, genre, artist, url, image, onClick, isActive },
   index
 ) => {
   return (
-    <GenreWrapper key={id} as="button" onClick={onClick} tabIndex={index}>
+    <GenreWrapper
+      key={id}
+      as="button"
+      onClick={onClick}
+      isActive={isActive}
+      tabIndex={index}
+    >
       <ImageWrapper>
         <img src={image} alt="genre" />
       </ImageWrapper>

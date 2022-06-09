@@ -21,7 +21,7 @@ export const handlers = [
       const newGenre = genres.filter(
         (genre: Genre) => genre.id.toString() === req.params.id
       );
-      return res(ctx.status(200), ctx.json({ newGenre }));
+      return res(ctx.status(200), ctx.json(newGenre));
     }
   }),
 ];

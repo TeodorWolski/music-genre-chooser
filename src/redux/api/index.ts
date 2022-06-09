@@ -11,13 +11,7 @@ export const getGenres = async (): Promise<Genre[] | unknown> => {
   }
 };
 
-export const createGenre = async ({
-  id,
-  genre,
-  artist,
-  url,
-  image,
-}: Genre): Promise<Genre> => {
-  axios.put(`/genres/create/:${id}`);
-  return { genre, artist, url, image, id };
+export const createGenre = async (genre: Genre): Promise<Genre> => {
+  await axios.post(`/genres/create/:${genre.id}`);
+  return genre;
 };

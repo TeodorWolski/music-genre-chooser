@@ -1,5 +1,4 @@
-import { useState, useRef } from 'react';
-import { useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'redux/store/store';
 import { Genre } from 'types/types';
@@ -9,12 +8,12 @@ import SelectedGenresList from 'components/molecules/SelectedGenresList/Selected
 import GenresList from 'components/molecules/GenresList/GenresList';
 
 const Combobox = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const [isVisible, setVisibility] = useState<boolean>(false);
   const [searchedItem, setSearchedItem] = useState<Genre[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
-  const fulledGenresList = useSelector((state: RootState) => state);
+  const fulledGenresList: Genre[] = useSelector((state: RootState) => state);
 
   useEffect(() => {
     dispatch(fetchGenres());

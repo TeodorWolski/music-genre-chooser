@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Wrapper, NoMatches } from './GenresList.styles';
 import { SelectContext } from 'providers/SelectProvider';
 import { ContextProps, Genre as GenreProps } from 'types/types';
@@ -13,9 +13,11 @@ interface Props {
 const GenresList: React.FC<Props> = ({ isVisible, genresList }) => {
   const { addGenre } = useContext<ContextProps>(SelectContext);
   const { handleOpenModal, isOpen, handleCloseModal } = useModal();
+  const [isActive, setActive] = useState<boolean>(false);
+
   return (
     <>
-      <Wrapper isVisible={isVisible}>
+      <Wrapper onKeyDown={() => setActive(!isActive)} isVisible={isVisible}>
         {genresList.length > 0 ? (
           <>
             {genresList.map(({ image, genre, id, artist, url }) => (
@@ -27,6 +29,7 @@ const GenresList: React.FC<Props> = ({ isVisible, genresList }) => {
                 genre={genre}
                 artist={artist}
                 onClick={() => addGenre(genre, id)}
+                isActive={isActive}
               />
             ))}
           </>

@@ -2,7 +2,7 @@ import { Genre } from 'types/types';
 
 export const fetchGenres = () => ({ type: 'GENRES_FETCH_REQUESTED' });
 
-export const addGenre = ({ id, genre, url, image, artist }: Genre) => ({
+export const addGenre = (genre: Genre | object) => ({
   type: 'CREATE_GENRE_REQUESTED',
-  payload: { id, genre, url, image, artist },
+  payload: genre,
 });

@@ -1,5 +1,8 @@
 import { useState, useRef } from 'react';
 import { ModalWrapper, InputsWrapper, Wrapper } from './Modal.styles';
+import { addGenre } from 'redux/actions';
+import { Genre } from 'types/types';
+import { useDispatch } from 'react-redux';
 
 interface ModalInterface {
   handleClose: () => void;
@@ -15,7 +18,8 @@ const initialState = {
 };
 
 const Modal: React.FC<ModalInterface> = ({ handleClose, isOpen }) => {
-  const [newGenre, setNewGenre] = useState<null | object>(initialState);
+  const dispatch = useDispatch();
+  const [newGenre, setNewGenre] = useState<object | Genre>(initialState);
   const nameRef = useRef<HTMLInputElement>(null);
   const artistRef = useRef<HTMLInputElement>(null);
   const spotifyRef = useRef<HTMLInputElement>(null);
@@ -23,7 +27,7 @@ const Modal: React.FC<ModalInterface> = ({ handleClose, isOpen }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const id: number = Math.floor(Math.random() * 100);
+    const id = Math.floor(Math.random() * 100);
 
     if (
       nameRef.current ||
@@ -38,9 +42,10 @@ const Modal: React.FC<ModalInterface> = ({ handleClose, isOpen }) => {
         url: spotifyRef.current?.value,
         image: photoRef.current?.value,
       });
+      dispatch(addGenre(newGenre));
     }
 
-    console.log(newGenre);
+    handleClose();
   };
 
   return (
