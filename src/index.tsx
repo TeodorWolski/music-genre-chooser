@@ -6,7 +6,7 @@ import { worker } from 'mocks/browser';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-worker.start().then(() => {
+worker.start({ onUnhandledRequest: 'bypass' }).then(() => {
   root.render(
     <React.StrictMode>
       <Root />
