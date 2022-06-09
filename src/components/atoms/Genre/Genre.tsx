@@ -7,7 +7,12 @@ import {
 import { Genre as Props } from 'types/types';
 import SpotifyIcon from 'assets/icons/SpotifyIcon.png';
 
-const Genre: React.FC<Props> = (
+interface GenreProps extends Props {
+  onClick?: () => void;
+  isActive?: boolean;
+}
+
+const Genre: React.FC<GenreProps> = (
   { id, genre, artist, url, image, onClick, isActive },
   index
 ) => {

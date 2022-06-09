@@ -17,7 +17,7 @@ const GenresList: React.FC<Props> = ({ isVisible, genresList }) => {
 
   return (
     <>
-      <Wrapper onKeyDown={() => setActive(!isActive)} isVisible={isVisible}>
+      <Wrapper isVisible={isVisible}>
         {genresList.length > 0 ? (
           <>
             {genresList.map(({ image, genre, id, artist, url }) => (
