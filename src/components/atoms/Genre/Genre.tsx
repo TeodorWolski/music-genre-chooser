@@ -10,10 +10,11 @@ import SpotifyIcon from 'assets/icons/SpotifyIcon.png';
 interface GenreProps extends Props {
   onClick?: () => void;
   isActive?: boolean;
+  setCurrentGenre?: any;
 }
 
 const Genre: React.FC<GenreProps> = (
-  { id, genre, artist, url, image, onClick, isActive },
+  { id, genre, artist, url, image, onClick, isActive, setCurrentGenre },
   index
 ) => {
   return (
@@ -23,6 +24,8 @@ const Genre: React.FC<GenreProps> = (
       onClick={onClick}
       isActive={isActive}
       tabIndex={index}
+      onMouseEnter={() => setCurrentGenre(genre, id)}
+      onMouseLeave={() => setCurrentGenre(undefined)}
     >
       <ImageWrapper>
         <img src={image} alt="genre" />

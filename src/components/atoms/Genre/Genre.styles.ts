@@ -15,7 +15,7 @@ export const GenreWrapper = styled.li<{ isActive?: boolean | null }>`
   padding: 0 1rem 0rem 2.5rem;
   border-radius: 2rem;
   box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
-  outline-color: ${({ theme }) => theme.colors.black};
+  outline: none;
 `;
 
 export const ImageWrapper = styled.div`
